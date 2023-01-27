@@ -1,0 +1,67 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+  //   justify-content: center;
+  flex-direction: column;
+}
+$blue: #e7f4ff;
+$dark-blue: #0063a9;
+* {
+  margin: 0;
+}
+.home-container {
+  @include flex();
+  height: 100vh;
+  background-color: $blue;
+  h1 {
+    color: $dark-blue;
+    margin: 30px 0;
+  }
+  form {
+    @include flex();
+    background-color: white;
+    padding: 10px 20px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 50%;
+    h2 {
+      margin-bottom: 20px;
+    }
+    input,
+    select {
+      width: 50%;
+      height: 30px;
+      box-sizing: border-box;
+      text-indent: 10px;
+    }
+    fieldset {
+      @include flex();
+      margin: 20px 0;
+      width: 50%;
+      padding: 10px 5px;
+      input,
+      select {
+        width: 80%;
+      }
+      legend {
+        margin-left: 10px;
+        padding: 0 10px;
+      }
+    }
+    button {
+      margin-top: 20px;
+      width: 200px;
+      height: 50px;
+      font-size: 20px;
+
+      background-color: $blue;
+      border: 1px solid $dark-blue;
+      color: $dark-blue;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

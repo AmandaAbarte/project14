@@ -1,1 +1,75 @@
-/* No CSS *//*# sourceMappingURL=App.css.map */
+* {
+  margin: 0;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #e7f4ff;
+}
+
+.home-container h1 {
+  color: #0063a9;
+  margin: 30px 0;
+}
+
+.home-container form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px 20px 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.home-container form h2 {
+  margin-bottom: 20px;
+}
+
+.home-container form input,
+.home-container form select {
+  width: 50%;
+  height: 30px;
+  box-sizing: border-box;
+  text-indent: 10px;
+}
+
+.home-container form fieldset {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+  width: 50%;
+  padding: 10px 5px;
+}
+
+.home-container form fieldset input,
+.home-container form fieldset select {
+  width: 80%;
+}
+
+.home-container form fieldset legend {
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+.home-container form button {
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #e7f4ff;
+  border: 1px solid #0063a9;
+  color: #0063a9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home-container form button:hover {
+  transform: scale(1.05);
+}
+/*# sourceMappingURL=App.css.map */
