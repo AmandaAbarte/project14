@@ -1,7 +1,6 @@
 @mixin flex {
   display: flex;
   align-items: center;
-  //   justify-content: center;
   flex-direction: column;
 }
 $blue: #e7f4ff;
@@ -11,7 +10,7 @@ $dark-blue: #0063a9;
 }
 .home-container {
   @include flex();
-  height: 100vh;
+  padding-bottom: 50px;
   background-color: $blue;
   h1 {
     color: $dark-blue;
@@ -27,12 +26,16 @@ $dark-blue: #0063a9;
     h2 {
       margin-bottom: 20px;
     }
+    label {
+      margin-bottom: 10px;
+    }
     input,
     select {
       width: 50%;
       height: 30px;
       box-sizing: border-box;
       text-indent: 10px;
+      margin-bottom: 20px;
     }
     fieldset {
       @include flex();

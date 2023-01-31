@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  padding-bottom: 50px;
   background-color: #e7f4ff;
 }
 
@@ -30,12 +30,17 @@
   margin-bottom: 20px;
 }
 
+.home-container form label {
+  margin-bottom: 10px;
+}
+
 .home-container form input,
 .home-container form select {
   width: 50%;
   height: 30px;
   box-sizing: border-box;
   text-indent: 10px;
+  margin-bottom: 20px;
 }
 
 .home-container form fieldset {
