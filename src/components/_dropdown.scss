@@ -3,12 +3,20 @@
   flex-direction: column;
   width: 80%;
   position: relative;
+  .cust-input{
+    height: 0;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
   .cust-input-value {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 2px;
     height: 30px;
-
+    text-indent: 10px;
     box-sizing: border-box;
   }
   .cust-dropdown-list {

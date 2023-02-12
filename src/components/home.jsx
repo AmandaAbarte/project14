@@ -24,6 +24,7 @@ export default function Home() {
       ...formData,
       [name]: value,
     });
+    console.log(name, value);
   }
 
   function saveEmployee(e) {
@@ -118,14 +119,19 @@ export default function Home() {
           <input id="city" type="text" onChange={handleInput} />
 
           <label htmlFor="state">State</label>
-          <select name="state" id="state" onChange={handleInput}>
+          {/* <select name="state" id="state" onChange={handleInput}>
             <option>Alabama</option>
             <option>California</option>
             <option>Engineering</option>
             <option>Human Resources</option>
             <option>Legal</option>
-          </select>
-          <Dropdown list={states} />
+          </select> */}
+          <Dropdown
+            list={states}
+            name="state"
+            id="state"
+            handler={handleInput}
+          />
 
           <label htmlFor="zipcode">Zip Code</label>
           <input id="zipcode" type="number" onChange={handleInput} />
