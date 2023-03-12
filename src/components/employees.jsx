@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Employees() {
-  const data = useSelector((state) => state.data);
-
+  const data = useSelector((state) => state.employee.employees);
+  const home = () => {
+    navigate("/");
+  };
   const list =
     data !== null &&
     data.map((item) => {
@@ -16,8 +19,8 @@ export default function Employees() {
   return (
     <div id="employee-div" className="container">
       <h1>Current Employees</h1>
-      {list} 
-      <a href="/">Home</a>
+      {list}
+      <p onClick={home}>Home</p>
     </div>
   );
 }

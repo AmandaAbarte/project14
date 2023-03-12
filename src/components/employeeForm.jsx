@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addEmployee } from "../context/employeeSlice.slice";
 import Dropdown from "./dropdown";
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.data);
+  const data = useSelector((state) => state.employee.employees);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -24,16 +25,14 @@ export default function CreateEmployee() {
       ...formData,
       [name]: value,
     });
-    console.log(name, value);
   }
-
-  function saveEmployee(e) {
+  //dispatch empoyee data to store on submit
+  const saveEmployee = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "getEmployees",
-      data: formData,
-    });
-  }
+
+    dispatch(addEmployee(formData));
+    console.log(data);
+  };
   const states = [
     "Alabama",
     "Alaska",
@@ -87,7 +86,7 @@ export default function CreateEmployee() {
     "Wyoming",
   ];
   return (
-    <form action="">
+    <form onSubmit={saveEmployee}>
       <h2>Create Employee</h2>
       <label htmlFor="firstname">First Name</label>
       <input type="text" id="firstname" onChange={handleInput} />
@@ -122,7 +121,7 @@ export default function CreateEmployee() {
         <option>Human Resources</option>
         <option>Legal</option>
       </select>
-      <button onClick={saveEmployee}>Save</button>
+      <button type="submit">Save</button>
     </form>
   );
 }
