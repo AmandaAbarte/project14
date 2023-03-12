@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <h1>HRnet</h1>
-      <p onClick={employees}> View current employees</p>
+      <p onClick={employees} className="a"> View current employees</p>
       <CreateEmployee />
       <Modal />
     </div>

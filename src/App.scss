@@ -8,6 +8,10 @@ $dark-blue: #0063a9;
 * {
   margin: 0;
 }
+.a {
+  cursor: pointer;
+  font-weight: bold;
+}
 .home-container {
   @include flex();
   padding-bottom: 50px;
@@ -70,4 +74,4 @@ $dark-blue: #0063a9;
 }
 
 @import "./components/dropdown";
-@import "./components/modal/modal"
+@import "./components/modal/modal";

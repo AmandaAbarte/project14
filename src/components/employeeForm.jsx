@@ -89,15 +89,15 @@ export default function CreateEmployee() {
     <form onSubmit={saveEmployee}>
       <h2>Create Employee</h2>
       <label htmlFor="firstname">First Name</label>
-      <input type="text" id="firstname" onChange={handleInput} />
+      <input type="text" id="firstname" onChange={handleInput} required />
       <label htmlFor="lastname">Last Name</label>
-      <input type="text" id="lastname" onChange={handleInput} />
+      <input type="text" id="lastname" onChange={handleInput} required />
 
       <label htmlFor="dateofbirth">Date of Birth</label>
-      <input id="dateofbirth" type="date" onChange={handleInput} />
+      <input id="dateofbirth" type="date" onChange={handleInput} required />
 
       <label htmlFor="startdate">Start Date</label>
-      <input id="startdate" type="date" onChange={handleInput} />
+      <input id="startdate" type="date" onChange={handleInput} required />
       <fieldset className="address">
         <legend>Address</legend>
 
@@ -105,16 +105,16 @@ export default function CreateEmployee() {
         <input id="street" type="text" onChange={handleInput} />
 
         <label htmlFor="city">City</label>
-        <input id="city" type="text" onChange={handleInput} />
+        <input id="city" type="text" onChange={handleInput} required />
 
         <label htmlFor="state">State</label>
         <Dropdown list={states} name="state" id="state" handler={handleInput} />
 
         <label htmlFor="zipcode">Zip Code</label>
-        <input id="zipcode" type="number" onChange={handleInput} />
+        <input id="zipcode" type="number" onChange={handleInput} required />
       </fieldset>
       <label htmlFor="department">Department</label>
-      <select name="department" id="department" onChange={handleInput}>
+      <select name="department" id="department" onChange={handleInput} required>
         <option>Sales</option>
         <option>Marketing</option>
         <option>Engineering</option>

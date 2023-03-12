@@ -2,6 +2,11 @@
   margin: 0;
 }
 
+.a {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .home-container {
   display: flex;
   align-items: center;
