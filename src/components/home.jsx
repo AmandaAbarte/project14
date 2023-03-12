@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "./dropdown";
+import Modal from "./modal/modal";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function Home() {
     zipcode: "",
     department: "",
   });
+  const [isModalOpen, setIsModalOpen] = useState(false)
   //update form data on change
   function handleInput(event) {
     const name = event.target.id;
@@ -33,6 +35,7 @@ export default function Home() {
       type: "getEmployees",
       data: formData,
     });
+    setIsModalOpen(true)
     // console.log(formData);
   }
   const states = [
@@ -119,13 +122,6 @@ export default function Home() {
           <input id="city" type="text" onChange={handleInput} />
 
           <label htmlFor="state">State</label>
-          {/* <select name="state" id="state" onChange={handleInput}>
-            <option>Alabama</option>
-            <option>California</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select> */}
           <Dropdown
             list={states}
             name="state"
@@ -146,6 +142,7 @@ export default function Home() {
         </select>
         <button onClick={saveEmployee}>Save</button>
       </form>
+      {isModalOpen && <Modal/>}
     </div>
   );
 }

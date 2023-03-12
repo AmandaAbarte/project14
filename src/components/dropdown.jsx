@@ -28,7 +28,6 @@ export default function Dropdown(props) {
   }
   return (
     <div className="cust-dropdown-div">
-      
       <span
         className="cust-input-value"
         name={props.name}
