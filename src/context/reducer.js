@@ -1,20 +1,8 @@
-import { createStore } from "redux";
-// const localstorage = ;
-const localData = JSON.parse(localStorage.getItem("employeeData"));
+import { configureStore } from "@reduxjs/toolkit";
+import employeesReducer from "./employeeSlice.slice";
 
-const initialState = {
-  data: [],
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "getEmployees":
-      return {
-        ...state,
-        data: [...state.data, action.data],
-      };
-    default:
-      return state;
-  }
-};
-export const store = createStore(reducer);
+export const store = configureStore({
+  reducer: {
+    employee: employeesReducer,
+  },
+});
