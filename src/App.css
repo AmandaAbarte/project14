@@ -191,11 +191,17 @@ header .logo-container img {
   border-radius: 5px;
   background-color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.modal-container .modal-content .close-modal {
+.modal-container .modal-content .modal-title {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.modal-container .modal-content .modal-title .close-modal {
   margin-left: 50px;
   cursor: pointer;
   font-weight: bold;
