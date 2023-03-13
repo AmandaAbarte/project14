@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
+import { setModal } from "../context/modalSlice.slice";
 import Dropdown from "./dropdown";
+import Modal from "./modal/modal";
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.employee.employees);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -31,7 +32,8 @@ export default function CreateEmployee() {
     e.preventDefault();
 
     dispatch(addEmployee(formData));
-    console.log(data);
+    dispatch(setModal(true));
+    // setShowModal(true);
   };
   const states = [
     "Alabama",
@@ -86,42 +88,55 @@ export default function CreateEmployee() {
     "Wyoming",
   ];
   return (
-    <form onSubmit={saveEmployee}>
-      <h2>Create Employee</h2>
-      <label htmlFor="firstname">First Name</label>
-      <input type="text" id="firstname" onChange={handleInput} required />
-      <label htmlFor="lastname">Last Name</label>
-      <input type="text" id="lastname" onChange={handleInput} required />
+    <>
+      <form onSubmit={saveEmployee}>
+        <h2>Create Employee</h2>
+        <label htmlFor="firstname">First Name</label>
+        <input type="text" id="firstname" onChange={handleInput} required />
+        <label htmlFor="lastname">Last Name</label>
+        <input type="text" id="lastname" onChange={handleInput} required />
 
-      <label htmlFor="dateofbirth">Date of Birth</label>
-      <input id="dateofbirth" type="date" onChange={handleInput} required />
+        <label htmlFor="dateofbirth">Date of Birth</label>
+        <input id="dateofbirth" type="date" onChange={handleInput} required />
 
-      <label htmlFor="startdate">Start Date</label>
-      <input id="startdate" type="date" onChange={handleInput} required />
-      <fieldset className="address">
-        <legend>Address</legend>
+        <label htmlFor="startdate">Start Date</label>
+        <input id="startdate" type="date" onChange={handleInput} required />
+        <fieldset className="address">
+          <legend>Address</legend>
 
-        <label htmlFor="street">Street</label>
-        <input id="street" type="text" onChange={handleInput} />
+          <label htmlFor="street">Street</label>
+          <input id="street" type="text" onChange={handleInput} />
 
-        <label htmlFor="city">City</label>
-        <input id="city" type="text" onChange={handleInput} required />
+          <label htmlFor="city">City</label>
+          <input id="city" type="text" onChange={handleInput} required />
 
-        <label htmlFor="state">State</label>
-        <Dropdown list={states} name="state" id="state" handler={handleInput} />
+          <label htmlFor="state">State</label>
+          <Dropdown
+            list={states}
+            name="state"
+            id="state"
+            handler={handleInput}
+          />
 
-        <label htmlFor="zipcode">Zip Code</label>
-        <input id="zipcode" type="number" onChange={handleInput} required />
-      </fieldset>
-      <label htmlFor="department">Department</label>
-      <select name="department" id="department" onChange={handleInput} required>
-        <option>Sales</option>
-        <option>Marketing</option>
-        <option>Engineering</option>
-        <option>Human Resources</option>
-        <option>Legal</option>
-      </select>
-      <button type="submit">Save</button>
-    </form>
+          <label htmlFor="zipcode">Zip Code</label>
+          <input id="zipcode" type="number" onChange={handleInput} required />
+        </fieldset>
+        <label htmlFor="department">Department</label>
+        <select
+          name="department"
+          id="department"
+          onChange={handleInput}
+          required
+        >
+          <option>Sales</option>
+          <option>Marketing</option>
+          <option>Engineering</option>
+          <option>Human Resources</option>
+          <option>Legal</option>
+        </select>
+        <button type="submit">Save</button>
+      </form>
+      <Modal />
+    </>
   );
 }
