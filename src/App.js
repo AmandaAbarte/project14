@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/home";
-import Employees from "./components/employees";
+import Home from "./components/pages/home";
+import Employees from "./components/pages/employees";
 function App() {
   return (
     <div className="App">

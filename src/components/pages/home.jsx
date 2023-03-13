@@ -1,6 +1,6 @@
 import React from "react";
-import CreateEmployee from "./employeeForm";
-import Modal from "./modal/modal";
+import CreateEmployee from "../employeeForm";
+import Modal from "../modal/modal";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
