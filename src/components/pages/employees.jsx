@@ -4,11 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Table from "../table/table";
 
 export default function Employees() {
-  //handle navigation for "home button"
-  let navigate = useNavigate();
-  const home = () => {
-    navigate("/");
-  };
   //get employee data from store
   const employees = useSelector((state) => state.employee.employees);
   //organise employee data for table
@@ -65,11 +60,8 @@ export default function Employees() {
   ];
   return (
     <div id="employee-div" className="container">
-      <h1>Current Employees</h1>
+      <h2>Current Employees</h2>
       <Table columns={columnTitles} data={employeesArray} />
-      <p onClick={home} className="a">
-        Home
-      </p>
     </div>
   );
 }
