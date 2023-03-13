@@ -12,10 +12,27 @@ $dark-blue: #0063a9;
   cursor: pointer;
   font-weight: bold;
 }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #ecffe9;
+  box-shadow: 0px 6px 13px -8px rgba(100, 100, 100, 0.44);
+  .logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
 .home-container {
   @include flex();
   padding-bottom: 50px;
-  background-color: $blue;
   h1 {
     color: $dark-blue;
     margin: 30px 0;
@@ -27,6 +44,7 @@ $dark-blue: #0063a9;
     border-radius: 5px;
     margin-top: 20px;
     width: 50%;
+    box-shadow: 0px 6px 24px -8px rgba(100, 100, 100, 0.44);
     h2 {
       margin-bottom: 20px;
     }
@@ -71,6 +89,11 @@ $dark-blue: #0063a9;
       }
     }
   }
+}
+#employee-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @import "./components/dropdown";

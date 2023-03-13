@@ -1,4 +1,19 @@
-.table {
-  color: red;
+.table-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.table-container .column {
+  padding: 10px 20px;
+}
+
+.table-container .column .column-title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000076;
+}
+
+.table-container .column .row-item {
+  margin-bottom: 15px;
 }
 /*# sourceMappingURL=table.css.map */
