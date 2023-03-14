@@ -44,7 +44,7 @@ export default function Dropdown(props) {
         onClick={ToggleDropdown}
       >
         {inputValue}
-        <img src={arrow} alt="" className="arrow" />
+        <img src={arrow} alt="" className="arrow" style={styles.img} />
       </span>
       <ul className="cust-dropdown-list" style={styles.list}>
         {list}
