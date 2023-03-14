@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { updateDropdown } from "../../context/dropdownSlice.slice";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
+import arrow from "../../arrowdown.svg";
 
 export default function Dropdown(props) {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ export default function Dropdown(props) {
     list: {
       display: isVisible ? "flex" : "none",
     },
+    img: {
+      transform: isVisible ? "rotate(180deg)" : "rotate(0deg)",
+    },
   };
   function ToggleDropdown() {
     setIsVisible(!isVisible);
@@ -40,6 +44,7 @@ export default function Dropdown(props) {
         onClick={ToggleDropdown}
       >
         {inputValue}
+        <img src={arrow} alt="" className="arrow" />
       </span>
       <ul className="cust-dropdown-list" style={styles.list}>
         {list}
