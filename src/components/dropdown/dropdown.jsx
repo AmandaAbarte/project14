@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { updateDropdown } from "../context/dropdownSlice.slice";
+import { updateDropdown } from "../../context/dropdownSlice.slice";
 import { useDispatch} from "react-redux";
 
 export default function Dropdown(props) {

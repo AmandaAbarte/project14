@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
 import { setModal } from "../context/modalSlice.slice";
-import Dropdown from "./dropdown";
+import Dropdown from "./dropdown/dropdown";
 import Modal from "./modal/modal";
 
 export default function CreateEmployee() {
