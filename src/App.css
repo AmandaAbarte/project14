@@ -121,6 +121,7 @@ header .logo-container img {
   flex-direction: column;
   width: 80%;
   position: relative;
+  background-color: white;
 }
 
 .cust-dropdown-div .cust-input {
@@ -154,6 +155,7 @@ header .logo-container img {
   box-sizing: border-box;
   list-style: none;
   padding: 0;
+  z-index: 999999;
 }
 
 .cust-dropdown-div .cust-dropdown-list::-webkit-scrollbar {

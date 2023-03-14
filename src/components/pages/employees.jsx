@@ -51,7 +51,7 @@ export default function Employees() {
     },
     {
       title: "State",
-      key: "states",
+      key: "state",
     },
     {
       title: "Zip Code",

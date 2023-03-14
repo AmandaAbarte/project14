@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
 import { setModal } from "../context/modalSlice.slice";
 import Dropdown from "./dropdown";
@@ -7,6 +7,7 @@ import Modal from "./modal/modal";
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
+  const dropdowns = useSelector((state) => state.dropdown.dropdowns);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -33,7 +34,6 @@ export default function CreateEmployee() {
 
     dispatch(addEmployee(formData));
     dispatch(setModal(true));
-    // setShowModal(true);
   };
   const states = [
     "Alabama",
@@ -87,6 +87,21 @@ export default function CreateEmployee() {
     "Wisconsin",
     "Wyoming",
   ];
+  const departments = [
+    "Sales",
+    "Marketing",
+    "Legal",
+    "HR",
+    "Engineering",
+    "IT",
+  ];
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      state: dropdowns.state,
+      department: dropdowns.department,
+    });
+  }, [dropdowns]);
   return (
     <>
       <form onSubmit={saveEmployee}>
@@ -122,18 +137,25 @@ export default function CreateEmployee() {
           <input id="zipcode" type="number" onChange={handleInput} required />
         </fieldset>
         <label htmlFor="department">Department</label>
-        <select
+        {/* <select
           name="department"
           id="department"
           onChange={handleInput}
           required
         >
+          
           <option>Sales</option>
           <option>Marketing</option>
           <option>Engineering</option>
           <option>Human Resources</option>
           <option>Legal</option>
-        </select>
+        </select> */}
+        <Dropdown
+          list={departments}
+          name="department"
+          id="department"
+          handler={handleInput}
+        />
         <button type="submit">Save</button>
       </form>
       <Modal />

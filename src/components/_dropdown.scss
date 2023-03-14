@@ -3,7 +3,8 @@
   flex-direction: column;
   width: 80%;
   position: relative;
-  .cust-input{
+  background-color: white;
+  .cust-input {
     height: 0;
     opacity: 0;
     width: 0;
@@ -32,6 +33,7 @@
     box-sizing: border-box;
     list-style: none;
     padding: 0;
+    z-index: 999999;
     &::-webkit-scrollbar {
       width: 10px;
     }

@@ -15,6 +15,7 @@
 .table-container .column .column-title {
   margin-bottom: 20px;
   border-bottom: 1px solid #000076;
+  min-height: 55px;
 }
 
 .table-container .column .row-item {

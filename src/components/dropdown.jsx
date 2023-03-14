@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { updateDropdown } from "../context/dropdownSlice.slice";
+import { useDispatch} from "react-redux";
 
 export default function Dropdown(props) {
+  const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const list = props.list.map((item) => {
@@ -11,6 +14,7 @@ export default function Dropdown(props) {
           setInputValue(item);
           props.handler;
           setIsVisible(!isVisible);
+          dispatch(updateDropdown({ key: [props.id], value: item }));
         }}
       >
         {item}
