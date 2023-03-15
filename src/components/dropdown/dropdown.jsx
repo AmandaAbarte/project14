@@ -3,19 +3,20 @@ import { updateDropdown } from "../../context/dropdownSlice.slice";
 import { useDispatch } from "react-redux";
 import arrow from "../../arrowdown.svg";
 
-export default function Dropdown(props) {
+export default function Dropdown({ list, id, name }) {
   const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const list = props.list.map((item) => {
+  //generate dropdown list from data
+  const listElement = list.map((item) => {
     return (
       <li
         key={item}
+        // onclick display chosen option, change visibility and update state
         onClick={() => {
           setInputValue(item);
-          props.handler;
           setIsVisible(!isVisible);
-          dispatch(updateDropdown({ key: [props.id], value: item }));
+          dispatch(updateDropdown({ key: [id], value: item }));
         }}
       >
         {item}
@@ -23,6 +24,7 @@ export default function Dropdown(props) {
     );
   });
 
+  //change visibility of dropdown and rotation of arrow on click
   const styles = {
     list: {
       display: isVisible ? "flex" : "none",
@@ -38,8 +40,8 @@ export default function Dropdown(props) {
     <div className="cust-dropdown-div">
       <span
         className="cust-input-value"
-        name={props.name}
-        id={props.id}
+        name={name}
+        id={id}
         value={inputValue}
         onClick={ToggleDropdown}
       >
@@ -47,7 +49,7 @@ export default function Dropdown(props) {
         <img src={arrow} alt="" className="arrow" style={styles.img} />
       </span>
       <ul className="cust-dropdown-list" style={styles.list}>
-        {list}
+        {listElement}
       </ul>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
 import { setModal } from "../context/modalSlice.slice";
@@ -17,9 +17,7 @@ export default function CreateEmployee() {
     lastname: "",
     street: "",
     city: "",
-    state: "",
     zipcode: "",
-    department: "",
   });
   //update form data on change
   function handleInput(event) {
@@ -33,6 +31,7 @@ export default function CreateEmployee() {
   //dispatch empoyee data to store on submit
   const saveEmployee = (e) => {
     e.preventDefault();
+    //set date format before dispatching to store
     let birthDMY = `${dateofbirth.getDate()}-${
       dateofbirth.getMonth() + 1
     }-${dateofbirth.getFullYear()}`;
@@ -45,10 +44,13 @@ export default function CreateEmployee() {
 
         dateofbirth: birthDMY,
         startdate: startDMY,
+        state: dropdowns.state,
+        department: dropdowns.department,
       })
     );
     dispatch(setModal(true));
   };
+  //dropdown data
   const states = [
     "Alabama",
     "Alaska",
@@ -110,13 +112,7 @@ export default function CreateEmployee() {
     "IT",
   ];
   const calendarIcon = <img src={calendar} />;
-  useEffect(() => {
-    setFormData({
-      ...formData,
-      state: dropdowns.state,
-      department: dropdowns.department,
-    });
-  }, [dropdowns]);
+
   return (
     <>
       <form onSubmit={saveEmployee}>
@@ -139,7 +135,6 @@ export default function CreateEmployee() {
         />
 
         <label htmlFor="dateofbirth">Date of Birth</label>
-        {/* <input id="dateofbirth" type="date" onChange={handleInput} required /> */}
         <DatePicker
           onChange={setdateofbirth}
           value={dateofbirth}
@@ -184,7 +179,7 @@ export default function CreateEmployee() {
             list={states}
             name="state"
             id="state"
-            handler={handleInput}
+            // handler={handleInput}
           />
 
           <label htmlFor="zipcode">Zip Code</label>
@@ -201,7 +196,7 @@ export default function CreateEmployee() {
           list={departments}
           name="department"
           id="department"
-          handler={handleInput}
+          // handler={handleInput}
         />
         <button type="submit" className="button">
           Save
