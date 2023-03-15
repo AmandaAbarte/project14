@@ -62,8 +62,7 @@ header .logo-container img {
   margin-bottom: 10px;
 }
 
-.home-container form input,
-.home-container form select {
+.home-container form .input {
   width: 50%;
   height: 30px;
   box-sizing: border-box;
@@ -80,8 +79,7 @@ header .logo-container img {
   padding: 10px 5px;
 }
 
-.home-container form fieldset input,
-.home-container form fieldset select {
+.home-container form fieldset .input {
   width: 80%;
 }
 
@@ -90,7 +88,7 @@ header .logo-container img {
   padding: 0 10px;
 }
 
-.home-container form button {
+.home-container form .button {
   margin-top: 20px;
   width: 200px;
   height: 50px;
@@ -102,7 +100,7 @@ header .logo-container img {
   cursor: pointer;
 }
 
-.home-container form button:hover {
+.home-container form .button:hover {
   transform: scale(1.05);
 }
 

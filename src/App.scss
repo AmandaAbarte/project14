@@ -53,8 +53,7 @@ header {
     label {
       margin-bottom: 10px;
     }
-    input,
-    select {
+    .input {
       width: 50%;
       height: 30px;
       box-sizing: border-box;
@@ -66,8 +65,7 @@ header {
       margin: 20px 0;
       width: 50%;
       padding: 10px 5px;
-      input,
-      select {
+      .input {
         width: 80%;
       }
       legend {
@@ -75,7 +73,7 @@ header {
         padding: 0 10px;
       }
     }
-    button {
+    .button {
       margin-top: 20px;
       width: 200px;
       height: 50px;
