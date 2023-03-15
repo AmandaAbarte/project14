@@ -5,15 +5,16 @@ import { setModal } from "../context/modalSlice.slice";
 import Dropdown from "./dropdown/dropdown";
 import Modal from "./modal/modal";
 import DatePicker from "react-date-picker";
+import calendar from "../calendar.svg";
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
   const dropdowns = useSelector((state) => state.dropdown.dropdowns);
-  const [dateofbirth, setdateofbirth] = useState(new Date());
+  const [dateofbirth, setdateofbirth] = useState("");
+  const [startdate, setstartdate] = useState("");
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
-    startdate: "",
     street: "",
     city: "",
     state: "",
@@ -32,14 +33,18 @@ export default function CreateEmployee() {
   //dispatch empoyee data to store on submit
   const saveEmployee = (e) => {
     e.preventDefault();
-    let dateDMY = `${dateofbirth.getDate()}-${
+    let birthDMY = `${dateofbirth.getDate()}-${
       dateofbirth.getMonth() + 1
     }-${dateofbirth.getFullYear()}`;
+    let startDMY = `${startdate.getDate()}-${
+      startdate.getMonth() + 1
+    }-${startdate.getFullYear()}`;
     dispatch(
       addEmployee({
         ...formData,
 
-        dateofbirth: dateDMY,
+        dateofbirth: birthDMY,
+        startdate: startDMY,
       })
     );
     dispatch(setModal(true));
@@ -104,6 +109,7 @@ export default function CreateEmployee() {
     "Engineering",
     "IT",
   ];
+  const calendarIcon = <img src={calendar} />;
   useEffect(() => {
     setFormData({
       ...formData,
@@ -138,14 +144,20 @@ export default function CreateEmployee() {
           onChange={setdateofbirth}
           value={dateofbirth}
           format="dd-MM-y"
+          yearPlaceholder="YYYY"
+          monthPlaceholder="MM"
+          dayPlaceholder="DD"
+          calendarIcon={calendarIcon}
         />
         <label htmlFor="startdate">Start Date</label>
-        <input
-          id="startdate"
-          type="date"
-          onChange={handleInput}
-          required
-          className="input"
+        <DatePicker
+          onChange={setstartdate}
+          value={startdate}
+          format="dd-MM-y"
+          yearPlaceholder="YYYY"
+          monthPlaceholder="MM"
+          dayPlaceholder="DD"
+          calendarIcon={calendarIcon}
         />
         <fieldset className="address">
           <legend>Address</legend>

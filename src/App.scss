@@ -89,6 +89,51 @@ header {
       }
     }
   }
+  .react-date-picker {
+    width: 50%;
+    margin-bottom: 20px;
+    .react-date-picker__wrapper {
+      .react-date-picker__inputGroup {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .react-date-picker__inputGroup__input {
+          min-width: 22px;
+          font-size: 12px;
+        }
+      }
+    }
+    .react-date-picker__calendar {
+      .react-calendar {
+        border-radius: 5px;
+        padding: 5px;
+        .react-calendar__viewContainer {
+          .react-calendar__decade-view {
+            .react-calendar__tile--now {
+              background: #ecffe9;
+            }
+          }
+          .react-calendar__year-view__months {
+            .react-calendar__tile--now {
+              background: #ecffe9;
+            }
+          }
+          .react-calendar__month-view {
+            .react-calendar__month-view__days {
+              .react-calendar__tile {
+                line-height: 25px;
+                padding: 10px;
+                &--now {
+                  background: #ecffe9;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 #employee-div {
   display: flex;
