@@ -1,8 +1,13 @@
 .table-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
   border: solid 1px black;
+}
+
+.table-container .table-header {
+  display: flex;
+  flex-direction: row;
 }
 
 .table-container .column {
@@ -18,7 +23,8 @@
   min-height: 55px;
 }
 
-.table-container .column .row-item {
-  margin-bottom: 15px;
+.table-container .row {
+  display: flex;
+  flex-direction: row;
 }
 /*# sourceMappingURL=table.css.map */
