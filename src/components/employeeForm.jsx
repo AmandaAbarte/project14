@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
-import { setModal } from "../context/modalSlice.slice";
 import Dropdown from "./dropdown/dropdown";
 import Modal from "./modal/modal";
 import DatePicker from "react-date-picker";
@@ -10,6 +10,11 @@ import calendar from "../calendar.svg";
 export default function CreateEmployee() {
   const dispatch = useDispatch();
   const dropdowns = useSelector((state) => state.dropdown.dropdowns);
+  const [modalVisibility, setModalVisibility] = useState(false);
+  let navigate = useNavigate();
+  const employees = () => {
+    navigate("/employees");
+  };
   const [dateofbirth, setdateofbirth] = useState("");
   const [startdate, setstartdate] = useState("");
   const [formData, setFormData] = useState({
@@ -48,7 +53,17 @@ export default function CreateEmployee() {
         department: dropdowns.department,
       })
     );
-    dispatch(setModal(true));
+    setModalVisibility(true);
+    setFormData({
+      firstname: "",
+      lastname: "",
+      street: "",
+      city: "",
+      zipcode: "",
+    });
+  };
+  const closeModal = () => {
+    setModalVisibility(false);
   };
   //dropdown data
   const states = [
@@ -112,7 +127,15 @@ export default function CreateEmployee() {
     "IT",
   ];
   const calendarIcon = <img src={calendar} />;
+  const modalContent = (
+    <div>
+      <p>Employee Saved!</p>
 
+      <p onClick={employees} className="a">
+        See registered employees
+      </p>
+    </div>
+  );
   return (
     <>
       <form onSubmit={saveEmployee}>
@@ -124,6 +147,7 @@ export default function CreateEmployee() {
           onChange={handleInput}
           required
           className="input"
+          value={formData.firstname}
         />
         <label htmlFor="lastname">Last Name</label>
         <input
@@ -132,6 +156,7 @@ export default function CreateEmployee() {
           onChange={handleInput}
           required
           className="input"
+          value={formData.lastname}
         />
 
         <label htmlFor="dateofbirth">Date of Birth</label>
@@ -163,6 +188,7 @@ export default function CreateEmployee() {
             type="text"
             onChange={handleInput}
             className="input"
+            value={formData.street}
           />
 
           <label htmlFor="city">City</label>
@@ -172,15 +198,11 @@ export default function CreateEmployee() {
             onChange={handleInput}
             required
             className="input"
+            value={formData.city}
           />
 
           <label htmlFor="state">State</label>
-          <Dropdown
-            list={states}
-            name="state"
-            id="state"
-            // handler={handleInput}
-          />
+          <Dropdown list={states} name="state" id="state" />
 
           <label htmlFor="zipcode">Zip Code</label>
           <input
@@ -189,20 +211,20 @@ export default function CreateEmployee() {
             onChange={handleInput}
             required
             className="input"
+            value={formData.zipcode}
           />
         </fieldset>
         <label htmlFor="department">Department</label>
-        <Dropdown
-          list={departments}
-          name="department"
-          id="department"
-          // handler={handleInput}
-        />
+        <Dropdown list={departments} name="department" id="department" />
         <button type="submit" className="button">
           Save
         </button>
       </form>
-      <Modal />
+      <Modal
+        modalState={modalVisibility}
+        content={modalContent}
+        close={closeModal}
+      />
     </>
   );
 }
