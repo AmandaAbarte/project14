@@ -29,7 +29,9 @@ export default function Table({ columns, data }) {
   });
 
   //loop over data and return table rows
+  let keyid = 0;
   const rows = filterData.map((dataItem) => {
+    keyid++;
     const rowItems = dataItem.map((item) => {
       return (
         <div className="column" key={item.title}>
@@ -38,7 +40,7 @@ export default function Table({ columns, data }) {
       );
     });
     return (
-      <div className="row" key={dataItem[0].title}>
+      <div className="row" key={dataItem[0].title + keyid}>
         {rowItems}
       </div>
     );
