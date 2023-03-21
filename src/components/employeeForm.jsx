@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployee } from "../context/employeeSlice.slice";
 import Dropdown from "./dropdown/dropdown";
-import Modal from "./modal/modal";
 import DatePicker from "react-date-picker";
 import calendar from "../calendar.svg";
+
+import { Modal } from "@amandaabarte/react-modal-lib";
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
