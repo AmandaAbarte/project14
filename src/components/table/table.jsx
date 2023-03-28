@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./table.css";
 
+/**
+   * Displays table of employees
+   * @param {array} columns array of objects containing column titles and corresponding keys
+   * @param {array} data array of objects containing data and corresponding keys
+   * @returns {jsxElement} Table of employees registered
+   */
+
 export default function Table({ columns, data }) {
   const [search, setSearch] = useState("");
   const [filterData, setFilterData] = useState(data);

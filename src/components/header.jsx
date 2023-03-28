@@ -2,6 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../logo.svg";
 
+/**
+ * Page heaader
+ * @returns {jsxElement} Header element that contains links to other parts of page
+ */
 export default function Header() {
   let navigate = useNavigate();
   const employees = () => {

@@ -3,6 +3,13 @@ import { updateDropdown } from "../../context/dropdownSlice.slice";
 import { useDispatch } from "react-redux";
 import arrow from "../../arrowdown.svg";
 
+/**
+   * Displays custom dropdown select
+   * @param {array} list array of items to be displayed as dropdown options
+   * @param {string} id id attribute of dropdown
+   * @param {string} name name attribute of dropdown
+   * @returns {jsxElement} Custom dropdown select
+   */
 export default function Dropdown({ list, id, name }) {
   const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);

@@ -8,6 +8,10 @@ import calendar from "../calendar.svg";
 
 import { Modal } from "@amandaabarte/react-modal-lib";
 
+/**
+ * Displays form to register employees
+ * @returns {jsxElement} Form that submits entry to be displayed in table
+ */
 export default function CreateEmployee() {
   const dispatch = useDispatch();
   const dropdowns = useSelector((state) => state.dropdown.dropdowns);
