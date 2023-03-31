@@ -131,7 +131,7 @@ export default function CreateEmployee() {
     "Engineering",
     "IT",
   ];
-  const calendarIcon = <img src={calendar} />;
+  const calendarIcon = <img src={calendar} alt="calendar"/>;
   const modalContent = (
     <div>
       <p>Employee Saved!</p>
